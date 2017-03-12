@@ -33,12 +33,12 @@ $app->singleton(
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-	cms\Console\Kernel::class
+    cms\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-	cms\Exceptions\Handler::class
+    cms\Exceptions\Handler::class
 );
 
 /*
@@ -51,28 +51,25 @@ $app->singleton(
 | given environment, then we will automatically detect it for you.
 |
 */
+/*
+$env = $app->detectEnvironment(function () {
+    $environmentPath = __DIR__ . '/../.env';
 
-$env = $app->detectEnvironment(function ()
-{
-	$environmentPath = __DIR__ . '/../.env';
+    if (file_exists($environmentPath)) {
+        $setEnv = trim(file_get_contents($environmentPath));
+    } else {
+        $setEnv = 'installer';
+    }
 
-	if (file_exists($environmentPath))
-	{
-		$setEnv = trim(file_get_contents($environmentPath));
-	}
-	else
-	{
-		$setEnv = 'installer';
-	}
+    putenv('APP_ENV=' . $setEnv);
 
-	putenv('APP_ENV=' . $setEnv);
-
-	$dotenv = new \Dotenv\Dotenv(
-		__DIR__ . '/../',
-		'.env' . '.' . getenv('APP_ENV')
-	);
-	$dotenv->overload();
+    $dotenv = new \Dotenv\Dotenv(
+        __DIR__ . '/../',
+        '.env' . '.' . getenv('APP_ENV')
+    );
+    $dotenv->overload();
 });
+*/
 
 /*
 |--------------------------------------------------------------------------

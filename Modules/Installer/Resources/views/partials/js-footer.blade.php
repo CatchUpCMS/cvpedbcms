@@ -1,0 +1,1 @@
+@include('adminlte::partials.js-footer')

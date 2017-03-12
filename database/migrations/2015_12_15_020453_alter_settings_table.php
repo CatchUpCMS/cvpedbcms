@@ -10,6 +10,8 @@ class AlterSettingsTable extends Migration
 
 	/**
 	 * Run the migrations.
+	 *
+	 * @return void
 	 */
 	public function up()
 	{
@@ -20,8 +22,11 @@ class AlterSettingsTable extends Migration
 		});
 	}
 
+
 	/**
 	 * Reverse the migrations.
+	 *
+	 * @return void
 	 */
 	public function down()
 	{
@@ -31,4 +36,5 @@ class AlterSettingsTable extends Migration
 			$table->renameColumn('setting_value', 'value');
 		});
 	}
+
 }

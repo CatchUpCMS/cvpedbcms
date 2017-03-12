@@ -1,0 +1,26 @@
+{
+  "name": "cvepdb-cms/theme-lumen",
+  "description": "Theme lumen for #CVEPDB CMS",
+  "keywords": [
+    "Theme",
+    "lumen",
+    "CVEPDB",
+    "CMS"
+  ],
+  "license": "GPL-3.0",
+  "type": "laravel-library",
+  "homepage": "https://gitlab.com/cvepdb-cms/theme-lumen",
+  "authors": [
+    {
+      "name": "Antoine Benevaut",
+      "email": "antoine@cvepdb.fr"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "composer/installers": "~1.0"
+  },
+  "extra": {
+    "installer-name": "lumen"
+  }
+}

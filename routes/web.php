@@ -11,26 +11,24 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function() {
-	Route::get('/', function() {
-		return redirect(route(cms_route_frontend()));
-	});
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', function () {
+        return redirect(route(cms_route_frontend()));
+    });
 });
 
 /**
  * Ajax routes.
  */
-Route::group(['prefix' => 'ajax', 'as' => 'ajax.', 'namespace' => 'Ajax'], function ()
-{
+Route::group(['prefix' => 'ajax', 'as' => 'ajax.', 'namespace' => 'Ajax'], function () {
 
-	/**
-	 * ADDRESSES ROUTES
-	 */
+    /**
+     * ADDRESSES ROUTES
+     */
 
-	Route::group(['prefix' => 'addresses', 'as' => 'addresses.'], function ()
-	{
-		Route::resource('states', '\CVEPDB\Addresses\Http\Controllers\States\AjaxStatesController');
-		Route::resource('substates', '\CVEPDB\Addresses\Http\Controllers\SubStates\AjaxSubStatesController');
-	});
+    Route::group(['prefix' => 'addresses', 'as' => 'addresses.'], function () {
+        Route::resource('states', '\CVEPDB\Addresses\Http\Controllers\States\AjaxStatesController');
+        Route::resource('substates', '\CVEPDB\Addresses\Http\Controllers\SubStates\AjaxSubStatesController');
+    });
 
 });

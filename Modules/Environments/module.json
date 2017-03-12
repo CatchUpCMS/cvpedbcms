@@ -1,0 +1,15 @@
+{
+    "name": "Environments",
+    "alias": "environments",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 6,
+    "providers": [
+        "cms\\Modules\\Environments\\App\\Providers\\EnvironmentsServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

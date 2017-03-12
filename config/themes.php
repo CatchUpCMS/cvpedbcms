@@ -2,21 +2,21 @@
 
 return [
 
-	'default' => 'adminlte',
+    'default' => 'adminlte',
 
-	'path' => base_path('resources/themes'),
+    'path' => base_path('resources/themes'),
 
-	'config' => 'theme.json',
+    'config' => 'theme.json',
 
-	'cache' => [
-		'enabled'  => false,
-		'key'      => 'pingpong.themes',
-		'lifetime' => 86400,
-	],
+    'cache' => [
+        'enabled' => false,
+        'key' => 'pingpong.themes',
+        'lifetime' => 86400,
+    ],
 
-	'bower' => [
-		'binary_path' => '/vendor/bin',
-		'is_active'   => false
-	],
+    'bower' => [
+        'binary_path' => '/vendor/bin',
+        'is_active' => false
+    ],
 
 ];

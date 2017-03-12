@@ -1,0 +1,15 @@
+{
+    "name": "Settings",
+    "alias": "settings",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 6,
+    "providers": [
+        "cms\\Modules\\Settings\\App\\Providers\\SettingsServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

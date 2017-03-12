@@ -1,0 +1,15 @@
+{
+  "name": "lumen",
+  "description": "Bootswatch lumen theme",
+  "type": "frontend",
+  "preview": "thumbnail.png",
+  "author": [
+    {
+      "name": "Antoine Benevaut",
+      "email": "antoine@cvepdb.fr"
+    }
+  ],
+  "files": [
+    "theme.php"
+  ]
+}

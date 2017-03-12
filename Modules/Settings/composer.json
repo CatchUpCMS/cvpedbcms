@@ -1,0 +1,31 @@
+{
+  "name": "cvepdb-cms/module-settings",
+  "description": "Settings manager for cvepdb-cms",
+  "keywords": [
+    "Settings",
+    "module",
+    "CVEPDB",
+    "CMS"
+  ],
+  "license": "open",
+  "type": "laravel-library",
+  "homepage": "http://cavaencoreparlerdebits.fr",
+  "authors": [
+    {
+      "name": "Antoine Benevaut",
+      "email": "antoine@cvepdb.fr"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "cms\\Modules\\Settings\\": ""
+    }
+  },
+  "require": {
+    "php": ">=5.5.9",
+    "composer/installers": "~1.0"
+  },
+  "extra": {
+    "installer-name": "Settings"
+  }
+}

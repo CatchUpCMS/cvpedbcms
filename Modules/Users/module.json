@@ -1,0 +1,19 @@
+{
+  "name": "Users",
+  "alias": "users",
+  "description": "",
+  "keywords": [],
+  "active": 1,
+  "order": 5,
+  "providers": [
+    "cms\\Modules\\Users\\App\\Providers\\UsersServiceProvider",
+    "cms\\Modules\\Users\\App\\Providers\\EventServiceProvider",
+    "cms\\Modules\\Users\\App\\Providers\\SocialiteServiceProvider"
+  ],
+  "aliases": {
+    "Socialite": "Laravel\\Socialite\\Facades\\Socialite"
+  },
+  "files": [
+    "start.php"
+  ]
+}

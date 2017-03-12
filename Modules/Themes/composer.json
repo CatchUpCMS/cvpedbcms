@@ -1,0 +1,40 @@
+{
+  "name": "cvepdb-cms/module-themes",
+  "description": "Themes manager for cvepdb-cms",
+  "keywords": [
+    "Themes",
+    "module",
+    "CVEPDB",
+    "CMS"
+  ],
+  "license": "open",
+  "type": "laravel-library",
+  "homepage": "http://cavaencoreparlerdebits.fr",
+  "authors": [
+    {
+      "name": "Antoine Benevaut",
+      "email": "antoine@cvepdb.fr"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Modules\\Themes\\": ""
+    }
+  },
+  "require": {
+    "php": ">=5.5.9",
+    "composer/installers": "~1.0",
+    "cvepdb/laravel-themes": "dev-master",
+    "cvepdb-cms/theme-adminlte": "dev-master",
+    "cvepdb-cms/theme-lumen": "dev-master"
+  },
+  "extra": {
+    "installer-name": "Themes",
+    "installer-paths": {
+      "resources/themes/{$name}": [
+        "cvepdb-cms/theme-adminlte",
+        "cvepdb-cms/theme-lumen"
+      ]
+    }
+  }
+}
