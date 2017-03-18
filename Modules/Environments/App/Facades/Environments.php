@@ -9,8 +9,8 @@ use cms\Infrastructure\Abstractions\FacadeAbstract;
 class Environments extends FacadeAbstract
 {
 
-    protected static function getFacadeAccessor()
-    {
-        return 'environment';
-    }
+	protected static function getFacadeAccessor()
+	{
+		return 'environment';
+	}
 }

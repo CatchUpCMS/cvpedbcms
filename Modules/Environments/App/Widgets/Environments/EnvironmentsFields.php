@@ -1,8 +1,6 @@
 <?php namespace cms\Modules\Environments\App\Widgets\Environments;
 
-use cms\App\Facades\Environments;
 use cms\Infrastructure\Abstractions\Widgets\WidgetsAbstract;
-use cms\Domain\Settings\Settings\Repositories\SettingsRepository;
 use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloquent;
 
 /**
@@ -11,11 +9,6 @@ use cms\Domain\Environments\Environments\Repositories\EnvironmentsRepositoryEloq
  */
 class EnvironmentsFields extends WidgetsAbstract
 {
-
-	/**
-	 * @var SettingsRepository|null
-	 */
-	private $r_settings = null;
 
 	/**
 	 * @var EnvironmentsRepositoryEloquent|null
@@ -30,15 +23,12 @@ class EnvironmentsFields extends WidgetsAbstract
 	/**
 	 * EnvironmentsFields constructor.
 	 *
-	 * @param SettingsRepository             $r_settings
 	 * @param EnvironmentsRepositoryEloquent $r_environments
 	 */
 	public function __construct(
-		SettingsRepository $r_settings,
 		EnvironmentsRepositoryEloquent $r_environments
 	)
 	{
-		$this->r_settings = $r_settings;
 		$this->r_environments = $r_environments;
 	}
 
@@ -50,7 +40,8 @@ class EnvironmentsFields extends WidgetsAbstract
 	 */
 	public function register($name = 'environments[]', $attributes = [])
 	{
-		$envs = $this->r_environments
+		$envs = $this
+			->r_environments
 			->lists('domain', 'id')
 			->toArray();
 
@@ -71,7 +62,7 @@ class EnvironmentsFields extends WidgetsAbstract
 		if (array_key_exists('default', $attributes) && $attributes['default'])
 		{
 			$value = empty($value)
-				? [Environments::currentId()]
+				? [\Environments::currentId()]
 				: $value;
 		}
 
@@ -79,7 +70,7 @@ class EnvironmentsFields extends WidgetsAbstract
 			'environments.widgets.environmentsfields',
 			[
 				'environments' => $envs,
-				'default_env'  => Environments::currentId(),
+				'default_env'  => \Environments::currentId(),
 				'name'         => $name,
 				'value'        => $value,
 				'old_value'    => preg_replace("/[^A-Za-z0-9 ]/", '', $name),

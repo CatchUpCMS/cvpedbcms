@@ -1,15 +1,10 @@
 <?php namespace cms\Modules\Environments\Http\Controllers\Backend;
 
 use cms\Infrastructure\Abstractions\Controllers\BackendController;
-use cms\Domain\Users\Permissions\Repositories\PermissionsRepositoryEloquent;
-//use cms\Domain\Users\Roles\Repositories\RolesRepositoryEloquent;
+use cms\Domain\Users\Users\User;
 use cms\Modules\Environments\Domain\Environments\Environments\Repositories\EnvironmentsRepository;
 use cms\Modules\Environments\Http\Requests\Backend\EnvironmentFormRequest;
 
-/**
- * Class EnvironmentsController
- * @package cms\Http\Controllers\Backend
- */
 class EnvironmentsController extends BackendController
 {
     /**
@@ -24,14 +19,9 @@ class EnvironmentsController extends BackendController
      */
     public function __construct(EnvironmentsRepository $r_environments)
     {
-
-        /*$this->middleware(
-            'ability:' . RolesRepositoryEloquent::ADMIN . ',' . PermissionsRepositoryEloquent::SEE_ENVIRONMENT
-        );*/
-
-        /*if (!cmsuser_can_see_env()) {
-            abort(404);
-        }*/
+        $this->middleware(
+            'role:' . User::ROLE_SUPERADMIN
+        );
 
         $this->r_environments = $r_environments;
     }

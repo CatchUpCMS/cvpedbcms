@@ -1,14 +1,16 @@
 <?php namespace cms\Modules\Environments\App\Providers;
 
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
+use CVEPDB\Settings\Cache;
+use CVEPDB\Settings\SettingsServiceProvider;
 use cms\Modules\Environments\App\Services\Environment;
+use cms\Modules\Environments\Domain\Environments\Settings\Repositories\SettingsRepository;
 
 /**
  * Class EnvironmentsServiceProvider
  * @package cms\Modules\Environments\App\Providers
  */
-class EnvironmentsServiceProvider extends ServiceProvider
+class EnvironmentsServiceProvider extends SettingsServiceProvider
 {
 
 	/**
@@ -25,6 +27,8 @@ class EnvironmentsServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
+		parent::boot();
+
 		$this->registerTranslations();
 		$this->registerConfig();
 		$this->registerViews();
@@ -44,6 +48,30 @@ class EnvironmentsServiceProvider extends ServiceProvider
 
 		AliasLoader::getInstance([
 			'Environments' => \cms\Modules\Environments\App\Facades\Environments::class
+		])
+			->register();
+
+		$this->mergeConfigFrom(
+			base_path('vendor/cvepdb/laravel-settings/src/config/settings.php'),
+			'settings'
+		);
+
+		$this->app['settings'] = $this->app->share(function ($app)
+		{
+			$config = $app->config->get('settings', [
+				'cache_file' => storage_path('settings.json'),
+				'db_table'   => 'settings'
+			]);
+
+			return new SettingsRepository(
+				$app['db'],
+				new Cache($config['cache_file']),
+				$config
+			);
+		});
+
+		AliasLoader::getInstance([
+			'Settings' => \CVEPDB\Settings\Facades\Settings::class
 		])
 			->register();
 	}
@@ -110,7 +138,7 @@ class EnvironmentsServiceProvider extends ServiceProvider
 	 */
 	public function provides()
 	{
-		return ['environment'];
+		return ['environment', 'settings'];
 	}
 
 }

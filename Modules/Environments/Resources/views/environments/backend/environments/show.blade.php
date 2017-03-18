@@ -20,7 +20,7 @@
 @endsection
 
 @section('js')
-	<script src="{{ asset('assets/js/environments/show.js') }}"></script>
+	<script src="{{ asset('modules/environments/js/show.js') }}"></script>
 @endsection
 
 @section('before')
@@ -50,11 +50,11 @@
 @endsection
 
 @section('footer')
-	<button type="button" class="btn btn-default pull-left" data-dismiss="modal">
+	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal">
 		{{ trans('global.cancel') }}
 	</button>
-	<button type="submit" class="btn btn-primary pull-right">
-		<i class="fa fa-pencil"></i> {{ trans('environments/backend.index.modal.update.btn.edit') }}
+	<button type="submit" class="btn btn-primary btn-flat pull-right">
+		<i class="fa fa-pencil"></i> {{ trans('environments::backend.index.modal.update.btn.edit') }}
 	</button>
 @endsection
 

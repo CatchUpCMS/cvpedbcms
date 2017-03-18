@@ -6,7 +6,8 @@
     "active": 1,
     "order": 6,
     "providers": [
-        "cms\\Modules\\Environments\\App\\Providers\\EnvironmentsServiceProvider"
+        "cms\\Modules\\Environments\\App\\Providers\\EnvironmentsServiceProvider",
+        "cms\\Modules\\Environments\\App\\Providers\\EventServiceProvider"
     ],
     "aliases":{},
     "files": [

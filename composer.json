@@ -34,6 +34,7 @@
     "cvepdb/laravel-widgets": "dev-master",
     "doctrine/cache": "^1.6",
     "doctrine/dbal": "^2.5",
+    "dropbox/dropbox-sdk": "^1.1",
     "laravel/framework": "^5.3.24",
     "nesbot/carbon": "^1.20",
     "prettus/l5-repository": "^2.5",
@@ -41,11 +42,8 @@
     "spatie/laravel-backup": "^3.8"
   },
   "require-dev": {
-
-
     "codeception/codeception": "^2.2",
     "codeception/c3": "^2.0",
-
     "antennaio/laravel-codeception-dbdump": "0.0.5",
     "barryvdh/laravel-debugbar": "^2.3",
     "barryvdh/laravel-ide-helper": "^2.3"
@@ -84,6 +82,8 @@
     ],
     "post-update-cmd": [
       "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+      "php artisan ide-helper:generate",
+      "php artisan ide-helper:meta",
       "php artisan optimize"
     ]
   },

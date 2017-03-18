@@ -35,7 +35,7 @@
 
 <?php $attributes = ['class' => $class, 'multiple' => 'multiple']; ?>
 
-@if (!cmsuser_can_manage_env_items())
+@if (!cms_is_admin())
 
 	<?php $attributes = ['class' => $class, 'multiple' => 'multiple', 'disabled' => 'disabled']; ?>
 

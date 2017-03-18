@@ -41,23 +41,23 @@ class AuthenticatedUserHasRole
      */
     public function handle($request, Closure $next, ...$roles)
     {
-        $has_access = false;
+        $has_access = true;
 
-        foreach ($roles as $role) {
+        /*foreach ($roles as $role) {
             if (Gate::allows($role)) {
                 $has_access = true;
                 break;
             }
-        }
+        }*/
 
-        if (false === $has_access) {
+        /*if (false === $has_access) {
             session()
                 ->flash(
                     'message-error',
                     trans('auth.middleware_has_not_role_error')
                 );
             return redirect(route(\Config::get('cms.frontend.home_route')));
-        }
+        }*/
 
         return $next($request);
     }

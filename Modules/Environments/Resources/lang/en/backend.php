@@ -17,4 +17,8 @@ return [
 	'index.modal.update.title'             => 'Update environment',
 	'index.modal.update.btn.edit'          => 'Edit',
 	'index.modal.update.message.success'   => 'The environment was successfully edited',
+
+	'reference:unique' => 'An environment already exists with this reference',
+	'domain:unique'    => 'An environment already exists with this domain',
+
 ];
